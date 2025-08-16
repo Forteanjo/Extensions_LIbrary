@@ -7,6 +7,9 @@ annotationJvm = "1.9.1"
 #kotlinx-datetime
 kotlinx-datetime = "0.7.1"
 
+# ForteanJo libraries
+forteanjo-extensions = "1.1"
+
 # Android SDK settings
 android-compileSdk = "36"
 android-minSdk = "27"
@@ -19,6 +22,12 @@ app-versionName = "1.0"
 jvmTarget = "21"
 
 
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+
 [libraries]
 androidx-annotation = { module = "androidx.annotation:annotation", version.ref = "annotationJvm" }
 androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version.ref = "annotationJvm" }
@@ -26,7 +35,4 @@ androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jv
 #kotlinx-datetime
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
 
-[plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-android-library = { id = "com.android.library", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+forteanjo-extensions = { group = "com.github.forteanjo", name = "extensions", version.ref = "forteanjo-extensions" }
