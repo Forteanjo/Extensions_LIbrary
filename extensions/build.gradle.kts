@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.release
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -17,26 +16,15 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.toVersion(libs.versions.jvmTarget.get())
+        targetCompatibility = JavaVersion.toVersion(libs.versions.jvmTarget.get())
     }
 
     kotlin {
         compilerOptions {
             freeCompilerArgs.add("-Xcontext-sensitive-resolution")
-            jvmTarget = JvmTarget.fromTarget("21")
+            jvmTarget = JvmTarget.fromTarget(libs.versions.jvmTarget.get())
         }
-    }
-
-    sourceSets["main"].java {
-        srcDirs(
-            "src/main/kotlin",
-            "src/common/kotlin",
-            "src/debug/kotlin",
-            "src/release/kotlin",
-            "src/staging/kotlin",
-            "src/preproduction/kotlin"
-        )
     }
 
     // Add this to your android block to generate Javadoc from Kotlin sources
@@ -48,12 +36,19 @@ android {
         // Exclude generated files if necessary
         exclude("**/R.class", "**/BuildConfig.class")
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
     implementation(libs.kotlinx.datetime)
     implementation(libs.androidx.annotation)
 }
+
 
 // Add these tasks to create the sources and Javadoc JARs
 // Put these at the root level of your build.gradle.kts, outside publishing block
@@ -67,7 +62,6 @@ tasks.register<Jar>("sourcesJar") {
 //    archiveClassifier.set("javadoc")
 //    from(tasks.named("javadoc")) // Depends on the standard javadoc task
 //}
-
 
 publishing {
     publications {
@@ -87,4 +81,12 @@ publishing {
             pom { /* ... */ }
         }
     }
+
+    repositories {
+        maven {
+            name = "localRelease"
+            url = uri("${layout.buildDirectory}/repo")
+        }
+    }
+
 }

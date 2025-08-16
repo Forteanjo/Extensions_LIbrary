@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Extensions LIbrary"
+rootProject.name = "Extensions Library"
 include(":app")
 include(":extensions")
