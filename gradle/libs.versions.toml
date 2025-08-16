@@ -8,7 +8,7 @@ annotationJvm = "1.9.1"
 kotlinx-datetime = "0.7.1"
 
 # ForteanJo libraries
-forteanjo-extensions = "1.1"
+forteanjo-extensions = "1.0"
 
 # Android SDK settings
 android-compileSdk = "36"
