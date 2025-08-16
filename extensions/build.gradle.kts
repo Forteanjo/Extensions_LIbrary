@@ -56,12 +56,12 @@ dependencies {
 
 // Add these tasks to create the sources and Javadoc JARs
 // Put these at the root level of your build.gradle.kts, outside publishing block
-tasks.register<Jar>("sourcesJar") {
-    archiveClassifier.set("sources")
-    from(android.sourceSets["main"].java.srcDirs)
-    from(android.sourceSets["main"].kotlin.srcDirs()) // Include Kotlin sources
-}
-
+//tasks.register<Jar>("sourcesJar") {
+//    archiveClassifier.set("sources")
+//
+//    from(android.sourceSets["main"].java.srcDirs)      // Problematic for configuration cache
+//    from(android.sourceSets["main"].kotlin.srcDirs()) // Problematic for configuration cache
+//}
 
 //tasks.register<Jar>("javadocJar") {
 //    archiveClassifier.set("javadoc")
@@ -92,7 +92,7 @@ afterEvaluate {
                 version = "1.0.0"
 
                 // Add these for sources and Javadoc
-                artifact(tasks.named("sourcesJar")) // Assumes you have a sourcesJar task (see below)
+//                artifact(tasks.named("sourcesJar")) // Assumes you have a sourcesJar task (see below)
 //            artifact(tasks.named("javadocJar")) // Assumes you have a javadocJar task (see below)
 
                 pom {
