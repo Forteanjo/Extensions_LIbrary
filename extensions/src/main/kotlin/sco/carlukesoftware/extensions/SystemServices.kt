@@ -243,10 +243,30 @@ inline val Context.nsdManager
     get() = getSystemService(Context.NSD_SERVICE) as NsdManager
 
 /**
- * get PowerManager
- */
-inline val Context.powerManager
+ * A convenient inline property to retrieve the [PowerManager] system service.
+ *
+ * This property provides a shorthand way to access the [PowerManager] instance
+ * associated with the current [Context]. The [PowerManager] allows you to
+ * control the device's power state, such as managing wake locks, detecting
+ * whether the screen is on, and checking power-saving modes.
+ *
+ * @see Context.getSystemService
+ * @see PowerManager
+ * @return The [PowerManager] instance, or null if the system service is not available.
+ *
+ * @throws ClassCastException if the system service is not of type [PowerManager] (highly unlikely).
+ *
+ * Example Usage:
+ * ```kotlin
+ * val isScreenOn = if(powerManager?.isInteractive == true){
+ *     //Screen is on
+ * }else {
+ *      //Screen is off
+ * }
+ * ```
+ */inline val Context.powerManager
     get() = getSystemService(Context.POWER_SERVICE) as PowerManager
+
 
 /**
  * get PrintManager
