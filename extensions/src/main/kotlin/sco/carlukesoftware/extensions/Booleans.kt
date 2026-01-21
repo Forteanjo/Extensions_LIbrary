@@ -36,3 +36,5 @@ val Boolean?.orTrue: Boolean
 
 val Boolean?.orFalse: Boolean
     get() = this ?: false
+
+fun Boolean.toInt(): Int = if (this) 1 else 0

@@ -1,10 +1,11 @@
 package sco.carlukesoftware.extensions
 
-import android.R.attr.digits
+import android.annotation.SuppressLint
 import java.text.MessageFormat
 import java.util.Locale
 import kotlin.math.abs
 import kotlin.math.pow
+import kotlin.math.roundToInt
 
 
 // null == 0
@@ -107,3 +108,41 @@ fun Long.milliSecondsToTimeString(): String {
 fun Int.toBoolean(): Boolean = this != 0
 
 fun Number.swap(newNumber: Number): Pair<Number, Number> = Pair(newNumber, this)
+
+@SuppressLint("DefaultLocale")
+fun Int.formatWithCommas(): String {
+    return String.format("%,d", this)
+}
+
+fun Double.formatAsPrice(currencySymbol: String = "$"): String {
+    return "$currencySymbol%.2f".format(this)
+}
+fun Float.roundTo(decimals: Int): Float {
+    val multiplier = 10.0.pow(decimals)
+    return (this * multiplier).roundToInt() / multiplier.toFloat()
+}
+fun Float.formatAsPrice(currencySymbol: String = "$"): String {
+    return "$currencySymbol%.2f".format(this)
+}
+
+fun Int.clamp(min: Int, max: Int): Int {
+    return when {
+        this < min -> min
+        this > max -> max
+        else -> this
+    }
+}
+
+fun Float.clamp(min: Float, max: Float): Float {
+    return when {
+        this < min -> min
+        this > max -> max
+        else -> this
+    }
+}
+fun Int.inRange(range: IntRange): Boolean {
+    return this in range
+}
+fun Int.toPercentage(total: Int): Float {
+    return if (total == 0) 0f else (this.toFloat() / total) * 100
+}
