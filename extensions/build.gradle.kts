@@ -89,7 +89,7 @@ afterEvaluate {
 
                 groupId = "com.github.forteanjo"
                 artifactId = "extensions"
-                version = "1.0.0"
+                version = "1.0.1"
 
                 // Add these for sources and Javadoc
 //                artifact(tasks.named("sourcesJar")) // Assumes you have a sourcesJar task (see below)
