@@ -1,8 +1,5 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -38,7 +35,6 @@ android {
     kotlin {
         compilerOptions {
             freeCompilerArgs.add("-Xcontext-sensitive-resolution")
-            jvmTarget = JvmTarget.fromTarget("21")
         }
     }
 
@@ -56,8 +52,9 @@ android {
         }
     }
 
-    sourceSets["main"].java {
-        srcDirs(
+    // Add Kotlin source directories to AndroidSourceSet.kotlin
+    android.sourceSets.named("main") {
+        kotlin.directories += listOf(
             "src/main/kotlin",
             "src/common/kotlin",
             "src/debug/kotlin",

@@ -1,8 +1,5 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
 
     id("maven-publish")
 }
@@ -23,7 +20,6 @@ android {
     kotlin {
         compilerOptions {
             freeCompilerArgs.addAll("-Xcontext-sensitive-resolution")
-            jvmTarget = JvmTarget.fromTarget(libs.versions.jvmTarget.get())
         }
     }
 
@@ -32,7 +28,7 @@ android {
     // For basic Javadoc with KDoc:
     tasks.withType<Javadoc> {
         source(android.sourceSets["main"].java.srcDirs)
-        classpath += project.files(android.bootClasspath.joinToString(File.pathSeparator))
+        classpath += files(android.ndkPath)
         // Exclude generated files if necessary
         exclude("**/R.class", "**/BuildConfig.class")
     }
