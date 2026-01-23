@@ -45,7 +45,7 @@ You don’t need to manually wire anything for AGP 9 — Dokka already uses the 
 
 From your project root:
 ```text
-./gradlew dokkaHtml
+./gradlew dokkaGenerateHtml
 ```
 
 This generates documentation at:
@@ -171,7 +171,7 @@ jobs:
 
 ### ✔ Builds your Dokka docs
 
-```./gradlew dokkaHtml``` generates HTML docs into ```build/dokka/html```.
+```./gradlew dokkaGenerateHtml``` generates HTML docs into ```build/dokka/html```.
 
 ### ✔ Publishes them to the ```gh-pages``` branch
 
