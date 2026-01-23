@@ -23,16 +23,6 @@ android {
         }
     }
 
-    // Add this to your android block to generate Javadoc from Kotlin sources
-    // (if you are using Dokka, the setup is different)
-    // For basic Javadoc with KDoc:
-    tasks.withType<Javadoc> {
-        source(android.sourceSets["main"].java.srcDirs)
-        classpath += files(android.ndkPath)
-        // Exclude generated files if necessary
-        exclude("**/R.class", "**/BuildConfig.class")
-    }
-
     publishing {
         singleVariant("release") {
             // This will automatically create a publication component for the "release" variant
@@ -49,20 +39,6 @@ dependencies {
     implementation(libs.androidx.annotation)
 }
 
-
-// Add these tasks to create the sources and Javadoc JARs
-// Put these at the root level of your build.gradle.kts, outside publishing block
-//tasks.register<Jar>("sourcesJar") {
-//    archiveClassifier.set("sources")
-//
-//    from(android.sourceSets["main"].java.srcDirs)      // Problematic for configuration cache
-//    from(android.sourceSets["main"].kotlin.srcDirs()) // Problematic for configuration cache
-//}
-
-//tasks.register<Jar>("javadocJar") {
-//    archiveClassifier.set("javadoc")
-//    from(tasks.named("javadoc")) // Depends on the standard javadoc task
-//}
 
 afterEvaluate {
     publishing {
@@ -85,7 +61,7 @@ afterEvaluate {
 
                 groupId = "com.github.forteanjo"
                 artifactId = "extensions"
-                version = "1.0.1"
+                version = "1.0.2"
 
                 // Add these for sources and Javadoc
 //                artifact(tasks.named("sourcesJar")) // Assumes you have a sourcesJar task (see below)
