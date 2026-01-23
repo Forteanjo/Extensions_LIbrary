@@ -1,34 +1,40 @@
 [versions]
- agp = "9.0.0"
- kotlin = "2.3.0"
+agp = "9.0.0"
+kotlin = "2.3.0"
 
- annotationJvm = "1.9.1"
+# Dokka for documentation
+dokka = "2.1.0"
 
- #kotlinx-datetime
- kotlinx-datetime = "0.7.1"
+# Kotlin extensions
 
- # ForteanJo libraries
- extensions_library = "1.0.1"
+annotationJvm = "1.9.1"
 
- # Android SDK settings
- android-compileSdk = "36"
- android-minSdk = "27"
- android-targetSdk = "36"
- android-buildtools = "36.0.0"
+#kotlinx-datetime
+kotlinx-datetime = "0.7.1"
 
- app-versionCode = "1"
- app-versionName = "1.0"
+# ForteanJo libraries
+extensions_library = "1.0.2"
 
- jvmTarget = "21"
+# Android SDK settings
+android-compileSdk = "36"
+android-minSdk = "27"
+android-targetSdk = "36"
+android-buildtools = "36.0.0"
 
- [libraries]
- androidx-annotation = { module = "androidx.annotation:annotation", version.ref = "annotationJvm" }
- androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version.ref = "annotationJvm" }
+app-versionCode = "1"
+app-versionName = "1.0"
 
- #kotlinx-datetime
- kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
- kotlin-extensions_library = { module = "com.github.Forteanjo:Extensions_LIbrary", version.ref = "extensions_library" }
+jvmTarget = "21"
 
- [plugins]
- android-application = { id = "com.android.application", version.ref = "agp" }
- android-library = { id = "com.android.library", version.ref = "agp" }
+[libraries]
+androidx-annotation = { module = "androidx.annotation:annotation", version.ref = "annotationJvm" }
+androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version.ref = "annotationJvm" }
+
+#kotlinx-datetime
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlin-extensions_library = { module = "com.github.Forteanjo:Extensions_Library", version.ref = "extensions_library" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }

@@ -1,7 +1,9 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.dokka)
 
     id("maven-publish")
+
 }
 
 android {

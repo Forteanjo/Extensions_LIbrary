@@ -12,6 +12,12 @@ import kotlinx.datetime.toLocalDateTime
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
 
+/**
+ * Obtains the current year-month from the system clock in the specified time-zone.
+ *
+ * @param zone The time-zone to use, defaults to the current system default time-zone.
+ * @return The current year-month.
+ */
 fun YearMonth.Companion.now(
     zone: TimeZone = TimeZone.currentSystemDefault()
 ): YearMonth {
