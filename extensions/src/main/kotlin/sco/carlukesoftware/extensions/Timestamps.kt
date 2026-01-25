@@ -2,6 +2,20 @@ package sco.carlukesoftware.extensions
 
 import java.sql.Timestamp
 
+/**
+ * Creates a [Timestamp] from the given hours, minutes, and seconds.
+ *
+ * Note: This function incorrectly calculates the total milliseconds. It seems to intend to convert
+ * the time components into a total number of seconds and then treat that as milliseconds, which is
+ * not a standard representation for a `Timestamp`. A `java.sql.Timestamp` represents a point in
+ * time, specifically the number of milliseconds since the epoch (January 1, 1970, 00:00:00 GMT).
+ * The current calculation `(hours * 24) + (minutes * 60) + seconds` is logically flawed for creating a standard timestamp.
+ *
+ * @param hours The number of hours.
+ * @param minutes The number of minutes.
+ * @param seconds The number of seconds.
+ * @return A `Timestamp` object representing the calculated (though likely incorrect) millisecond value.
+ */
 fun createTimestamp(hours: Int, minutes: Int, seconds: Int): Timestamp =
     Timestamp((hours * 24) + (minutes * 60) + seconds.toLong())
 

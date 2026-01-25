@@ -37,7 +37,25 @@ fun Double?.orZero(): Double = or(0.0)
 fun Int.inRangeOr(min: Int, max: Int, default: Int): Int = if (this in min..max) this else default
 fun Number.InRangeOr(min: Number, max: Number, default: Number): Number = if (this.toFloat() in min.toFloat()..max.toFloat()) this else default
 
-// Percentages
+/**
+ * Calculates what fraction this number is of a given value.
+ *
+ * This function is useful for determining the proportion of one number relative to another,
+ * often as a preliminary step before formatting as a percentage (e.g., by multiplying by 100).
+ * The result is a `Float` to preserve decimal precision.
+ *
+ * Example:
+ * ```
+ * val part = 50
+ * val total = 200
+ * val fraction = part.asPercentage(total) // Result will be 0.25f
+ *
+ * val percentage = fraction * 100 // 25.0
+ * ```
+ *
+ * @param ofValue The total value to calculate the percentage against. This is the denominator.
+ * @return The fractional value of this number in relation to `ofValue`, as a `Float`.
+ */
 fun Number.asPercentage(ofValue: Number) =  this.toFloat() / ofValue.toFloat()
 fun Int.asPercentage(ofValue: Int) = (this.toFloat()/ ofValue.toFloat()).toInt()
 fun Long.asPercentage(ofValue: Long) = (this.toFloat()/ ofValue.toFloat()).toLong()
@@ -68,6 +86,27 @@ fun Long.toNumInUnits(): String {
 fun Number.formatDecimal(digits: Int = 2): String = "%.${digits}f".format(toDouble())
 
 
+/**
+ * Retrieves the digit at a specific position (from right to left, 0-indexed) in an integer.
+ *
+ * This operator allows accessing individual digits of an integer using the index operator `[]`.
+ * The index `digit` represents the position of the desired digit, starting from 0 for the
+ * rightmost digit (the ones place).
+ *
+ * Example:
+ * ```
+ * val number = 12345
+ * val onesPlace = number[0]   // Result: 5
+ * val tensPlace = number[1]   // Result: 4
+ * val hundredsPlace = number[2] // Result: 3
+ * val thousandsPlace = number[3] // Result: 2
+ * val tenThousandsPlace = number[4] // Result: 1
+ * val nonExistentPlace = number[5] // Result: 0
+ * ```
+ *
+ * @param digit The 0-based index of the digit to retrieve, where 0 is the rightmost digit.
+ * @return The digit at the specified position. Returns `0` if the index is out of bounds (greater than the number of digits).
+ */
 operator fun Int.get(digit: Int) =
     div(10.0.pow(digit.toDouble()))
         .rem(10.0)
@@ -125,6 +164,26 @@ fun Float.formatAsPrice(currencySymbol: String = "$"): String {
     return "$currencySymbol%.2f".format(this)
 }
 
+/**
+ * Constrains this value to be within a specified range.
+ *
+ * If the value is less than the minimum (`min`), it returns `min`.
+ * If the value is greater than the maximum (`max`), it returns `max`.
+ * Otherwise, it returns the original value.
+ *
+ * Example:
+ * ```
+ * val value = 15
+ * val clampedValue = value.clamp(0, 10) // clampedValue will be 10
+ *
+ * val anotherValue = 5
+ * val anotherClamped = anotherValue.clamp(0, 10) // anotherClamped will be 5
+ * ```
+ *
+ * @param min The minimum value of the range (inclusive).
+ * @param max The maximum value of the range (inclusive).
+ * @return The value constrained to the [min, max] range.
+ */
 fun Int.clamp(min: Int, max: Int): Int {
     return when {
         this < min -> min
@@ -133,6 +192,31 @@ fun Int.clamp(min: Int, max: Int): Int {
     }
 }
 
+/**
+ * Clamps this value to be within the specified range.
+ *
+ * If this value is less than the minimum value `min`, it returns `min`.
+ * If this value is greater than the maximum value `max`, it returns `max`.
+ * Otherwise, it returns this value itself.
+ *
+ * This ensures the returned value is always between `min` and `max` (inclusive).
+ *
+ * Example:
+ * ```
+ * val value = 150
+ * val clampedValue = value.clamp(0, 100) // clampedValue will be 100
+ *
+ * val anotherValue = -10
+ * val anotherClamped = anotherValue.clamp(0, 100) // anotherClamped will be 0
+ *
+ * val inRangeValue = 50
+ * val inRangeClamped = inRangeValue.clamp(0, 100) // inRangeClamped will be 50
+ * ```
+ *
+ * @param min The minimum value of the range.
+ * @param max The maximum value of the range.
+ * @return The clamped value, which is guaranteed to be in the range [`min`, `max`].
+ */
 fun Float.clamp(min: Float, max: Float): Float {
     return when {
         this < min -> min

@@ -1,6 +1,16 @@
 package sco.carlukesoftware.extensions
 
+/**
+ * Converts this [Float] value from Celsius to Fahrenheit.
+ *
+ * @return The temperature in Fahrenheit as a [Float].
+ */
 fun Float.celsiusToFahrenheit() = (this * 9/5) + 32
+/**
+ * Converts a temperature value from Fahrenheit to Celsius.
+ *
+ * @return The temperature in Celsius as a [Float].
+ */
 fun Float.fahrenheitToCelsius() = (this - 32) * 5/9
 
 fun Float.milesToKilometers() = this * 1.60934

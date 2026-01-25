@@ -3,13 +3,39 @@ package sco.carlukesoftware.extensions
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 
-fun Boolean.whenTrue(block: (Boolean) -> Unit): Boolean {
-    if (this) block(this)
+/**
+ * Executes the given [block] if the Boolean is `true`.
+ *
+ * This function allows for chaining operations based on the Boolean's value.
+ *
+ * @param block The function to execute if this Boolean is `true`. The Boolean itself is passed as an argument to the block.
+ * @return The original Boolean value.
+ */
+inline fun Boolean.whenTrue(block: (Boolean) -> Unit): Boolean {
+    if (this) block(true)
     return this
 }
 
-fun Boolean.whenFalse(block: (Boolean) -> Unit): Boolean {
-    if (!this) block(this)
+/**
+ * Executes the given [block] if the Boolean value is `false`.
+ *
+ * This function is useful for chaining operations based on a boolean condition
+ * without breaking the flow.
+ *
+ * Example:
+ * ```
+ * val fileExists = File("path/to/file").exists()
+ * fileExists.whenFalse {
+ *     println("File does not exist, creating it now.")
+ *     // logic to create the file
+ * }
+ * ```
+ *
+ * @param block The block of code to execute. The boolean value (`false`) is passed as its argument.
+ * @return The original Boolean value (`this`).
+ */
+inline fun Boolean.whenFalse(block: (Boolean) -> Unit): Boolean {
+    if (!this) block(false)
     return this
 }
 

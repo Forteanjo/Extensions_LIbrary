@@ -15,10 +15,29 @@ fun String.isEmailValid(): Boolean {
     //return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
 }
 
+/**
+ * Checks if the string contains any of the specified symbols.
+ * @param symbols A list of strings to search for within this string.
+ * @return `true` if this string contains at least one of the elements from the [symbols] list, `false` otherwise.
+ */
 fun String.containsAnySymbol(symbols: List<String>): Boolean {
     return this.findAnyOf(symbols, 0, false) != null
 }
 
+/**
+ * Converts the string to title case.
+ *
+ * This function capitalizes the first letter of the string and the first letter of every word
+ * after a space. It first trims any leading or trailing whitespace and converts the entire
+ * string to lowercase before applying the title case logic.
+ *
+ * Examples:
+ * - "hello world" becomes "Hello World"
+ * - "  first name  " becomes "First Name"
+ * - "singleword" becomes "Singleword"
+ *
+ * @return The title-cased version of the string. Returns the original string if it is blank after trimming.
+ */
 fun String.titleCase(): String {
     val trimmed = trim()
     if(trimmed.isBlank()) return this
