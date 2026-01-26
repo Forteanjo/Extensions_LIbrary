@@ -60,6 +60,13 @@ fun <T> Iterable<T>.sumByLong(selector: (T) -> Long): Long {
     return fold(0L) { sum, element -> sum + selector(element) }
 }
 
+/**
+ * Returns a new list with all occurrences of the specified [oldValue] replaced by the [newValue].
+ *
+ * @param oldValue The value to be replaced.
+ * @param newValue The value to replace with.
+ * @return A new list with the replacements made.
+ */
 fun <T> List<T>.replaceAll(oldValue: T, newValue: T): List<T> {
     return map { if (it == oldValue) newValue else it }
 }
