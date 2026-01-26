@@ -49,8 +49,8 @@ jobs:
         run: ./gradlew :extensions:assembleRelease
 
       # Optional: Publish artifacts
-      - name: Publish to Maven Local
-        run: ./gradlew :extensions:publishReleasePublicationToMavenLocal
+      # - name: Publish to Maven Local
+      #   run: ./gradlew :extensions:publishReleasePublicationToMavenLocal
 
       # Optional: Upload build artifacts
       # - name: Upload APK
