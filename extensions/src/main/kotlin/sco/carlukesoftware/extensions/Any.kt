@@ -79,6 +79,24 @@ inline fun Any?.onIsNull(block: () -> Unit) = if (this == null) { block() } else
  */
 inline fun Any?.toString(): String = this?.toString() ?: "null"
 
+/**
+ * A convenient extension property to check if a nullable object is `null`.
+ *
+ * This property serves as a more readable and fluent alternative to the standard `this == null` check.
+ * It enhances code clarity, especially within conditional expressions or when chaining calls.
+ *
+ * Example:
+ * ```
+ * val name: String? = null
+ * if (name.isNull) {
+ *     println("Name is null.")
+ * }
+ * // Output: Name is null.
+ * ```
+ *
+ * @return `true` if the object is `null`, `false` otherwise.
+ * @see isNotNull
+ */
 val Any?.isNull: Boolean get() = this == null
 val Any?.isNotNull: Boolean get() = this != null
 

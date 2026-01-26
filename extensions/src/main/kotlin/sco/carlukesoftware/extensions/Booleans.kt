@@ -39,6 +39,29 @@ inline fun Boolean.whenFalse(block: (Boolean) -> Unit): Boolean {
     return this
 }
 
+/**
+ * Checks if the nullable Boolean is `true`.
+ *
+ * This function provides a safe way to check for `true` on a `Boolean?` value.
+ * Unlike a direct `== true` comparison, this function uses contracts to enable
+ * smart-casting of the receiver to a non-nullable `Boolean` within the scope
+ * where this function returns `true`.
+ *
+ * Example:
+ * ```
+ * fun process(data: Boolean?) {
+ *     if (data.isTrue()) {
+ *         // 'data' is smart-cast to a non-nullable Boolean here
+ *         println("Data is definitely true.")
+ *     } else {
+ *         // 'data' could be false or null
+ *         println("Data is either false or null.")
+ *     }
+ * }
+ * ```
+ *
+ * @return `true` if the Boolean is not null and has a value of `true`, `false` otherwise.
+ */
 @OptIn(ExperimentalContracts::class)
 fun Boolean?.isTrue(): Boolean {
     contract {

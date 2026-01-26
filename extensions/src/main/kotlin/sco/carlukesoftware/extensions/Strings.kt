@@ -101,6 +101,15 @@ val String.isAlphanumeric: Boolean
 val String.hasLettersAndDigits: Boolean
     get() = containsLatinLetter && containsDigit
 
+/**
+ * Checks if the string can be parsed as an integer number.
+ *
+ * This property uses [toIntOrNull] to safely attempt the conversion.
+ * It returns `true` if the string represents a valid integer (e.g., "123", "-45"),
+ * and `false` otherwise (e.g., "12.3", "abc").
+ *
+ * @return `true` if the string is a valid integer, `false` otherwise.
+ */
 val String.isIntegerNumber: Boolean
     get() = toIntOrNull() != null
 
