@@ -4,9 +4,9 @@
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.3.0-blue.svg)](https://kotlinlang.org/)
 [![API](https://img.shields.io/badge/API-27%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=26)
 
-[![Build Status](https://github.com/forteanjo/Extensions_LIbrary/actions/workflows/android.yml/badge.svg)](https://github.com/forteanjo/Extensions_LIbrary/actions/workflows/android.yml)
-[![Release](https://jitpack.io/v/forteanjo/Extensions_LIbrary.svg)](https://jitpack.io/#forteanjo/#Forteanjo/Extensions_LIbrary)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/forteanjo/Extensions_LIbrary)](https://github.com/forteanjo/Extensions_LIbrary/releases)
+[![Build Status](https://github.com/forteanjo/Extensions_Library/actions/workflows/android.yml/badge.svg)](https://github.com/forteanjo/Extensions_Library/actions/workflows/android.yml)
+[![Release](https://jitpack.io/v/forteanjo/Extensions_Library.svg)](https://jitpack.io/#forteanjo/#Forteanjo/Extensions_Library)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/forteanjo/Extensions_Library)](https://github.com/forteanjo/Extensions_Library/releases)
 
 
 An extensions library for use in Kotlin Android projects.
