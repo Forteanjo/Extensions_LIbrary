@@ -104,6 +104,21 @@ val String.hasLettersAndDigits: Boolean
 val String.isIntegerNumber: Boolean
     get() = toIntOrNull() != null
 
+/**
+ * Checks if the string can be parsed as a decimal number (Double).
+ *
+ * This property uses [toDoubleOrNull] to safely attempt the conversion.
+ * It returns `true` if the string represents a valid floating-point number,
+ * and `false` otherwise.
+ *
+ * Examples:
+ * - "123.45".toDecimalNumber -> true
+ * - "-50".toDecimalNumber -> true
+ * - "abc".toDecimalNumber -> false
+ * - "".toDecimalNumber -> false
+ *
+ * @return `true` if the string is a valid decimal number, `false` otherwise.
+ */
 val String.toDecimalNumber: Boolean
     get() = toDoubleOrNull() != null
 
@@ -115,6 +130,20 @@ val String.removeAllWhitespaces: String
 val String.removeDuplicateWhitespaces: String
     get() = this.replace("\\s+".toRegex(), " ")
 
+/**
+ * Repeats the string [n] times.
+ *
+ * This operator overload allows the use of the `*` operator to repeat a string.
+ *
+ * Example:
+ * ```
+ * val repeated = "abc" * 3 // Result is "abcabcabc"
+ * ```
+ *
+ * @param n The number of times to repeat the string. Must be a non-negative integer.
+ * @return A new string consisting of the original string repeated [n] times.
+ *         Returns an empty string if [n] is zero or negative.
+ */
 operator fun String.times(n: Int): String {
     val sb = StringBuilder()
     repeat(n) {
@@ -127,6 +156,23 @@ operator fun String.times(n: Int): String {
 val String.wordCount: Int
     get() = this.split("\\s+".toRegex()).size
 
+/**
+ * Allows slicing a string using an `IntRange` with an inclusive end.
+ *
+ * This operator provides a convenient way to get a substring using range notation (e.g., `myString[0..4]`).
+ * It behaves similarly to Python's string slicing.
+ *
+ * @param range The inclusive range of indices to extract.
+ * @return A new string containing the characters from the starting index to the ending index of the range, inclusive.
+ * @throws IndexOutOfBoundsException if the range is outside the bounds of the string.
+ *
+ * Example:
+ * ```
+ * val text = "Hello, World!"
+ * val slice = text[0..4] // equivalent to text.substring(0, 5)
+ * println(slice) // Outputs: "Hello"
+ * ```
+ */
 operator fun String.get(range: IntRange) = substring(range.first, range.last + 1)
 
 fun CharSequence?.isValidEmail() =

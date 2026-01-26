@@ -14,20 +14,52 @@ fun <K, V> Map<K, V>?.orEmpty(): Map<K, V> = this ?: emptyMap()
 fun <T> Set<T>?.orEmpty(): Set<T> = this ?: emptySet()
 fun <T> Collection<T>?.orEmpty(): Collection<T> = this ?: emptyList()
 
+/**
+ * Executes the given [block] if this nullable list is not null and not empty.
+ *
+ * @param block The block of code to execute with this non-empty list as its argument.
+ */
 inline fun <T> List<T>?.whenNotEmpty(block: (List<T>) -> Unit) {
     if (!this.isNullOrEmpty()) this?.let { block(it) }
 }
 
+/**
+ * Returns the element at the specified [index] in the list, or the [default] value if the list is `null`
+ * or the index is out of bounds.
+ *
+ * @param index The index of the element to retrieve.
+ * @param default The value to return if the list is `null` or the index is invalid.
+ * @return The element at the given index or the [default] value.
+ */
 fun <T> List<T>?.or(index: Int, default: T): T =
     if (this != null && index in indices) this[index] else default
 
+/**
+ * Returns a list containing the results of applying the given [transform] function
+ * to each element in the original list if the list is not null or empty.
+ * If the list is null or empty, it returns an empty list.
+ *
+ * @param transform The function to apply to each element.
+ * @return A new list with the transformed elements, or an empty list if the original was null or empty.
+ * @param T The type of elements in the original list.
+ * @param R The type of elements in the resulting list.
+ */
 inline fun <T, R> List<T>?.mapIfNotEmpty(transform: (T) -> R): List<R> =
     if (isNullOrEmpty()) emptyList() else this!!.map(transform)
 
+/**
+ * Checks if a list is `null` or empty.
+ * @return `true` if the list is `null` or has no elements, `false` otherwise.
+ */
 fun <T> List<T>?.isNullOrEmpty(): Boolean {
     return this == null || isEmpty()
 }
 
+/**
+ * Checks if a list is not null and not empty.
+ *
+ * @return `true` if the list is not null and contains at least one element, `false` otherwise.
+ */
 fun <T> List<T>?.isNotNullOrEmpty(): Boolean {
     return !isNullOrEmpty()
 }
