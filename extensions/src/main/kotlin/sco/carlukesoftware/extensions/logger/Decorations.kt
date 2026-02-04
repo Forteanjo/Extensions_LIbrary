@@ -16,6 +16,17 @@ fun Logger.withUniqueId() = Logger { message ->
     log("{${UUID.randomUUID()}} $message")
 }
 
+/**
+ * Creates a new logger that decorates messages with the name of the thread
+ * where the log was invoked.
+ *
+ * Example usage:
+ * ```kotlin
+ * val logger = consoleLogger.withThreadName()
+ * logger.log("Doing work") // Prints: Doing work (on main thread)
+ * ```
+ * @return A new [Logger] instance that adds thread information to each message.
+ */
 fun Logger.withThreadName() = Logger { message ->
     log("$message (on ${Thread.currentThread().name} thread)")
 }

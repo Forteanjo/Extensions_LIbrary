@@ -224,9 +224,47 @@ fun Float.clamp(min: Float, max: Float): Float {
         else -> this
     }
 }
+/**
+ * Checks if this integer is within the specified [range].
+ *
+ * This function is a convenience wrapper around the `in` operator for `IntRange`.
+ *
+ * Example:
+ * ```
+ * val age = 25
+ * val isWorkingAge = age.inRange(18..65) // Result: true
+ *
+ * val temperature = 10
+ * val isFreezing = temperature.inRange(-10..0) // Result: false
+ * ```
+ *
+ * @param range The `IntRange` to check against (inclusive).
+ * @return `true` if this integer is within the range, `false` otherwise.
+ */
 fun Int.inRange(range: IntRange): Boolean {
     return this in range
 }
+/**
+ * Calculates the percentage that this number represents out of a given total.
+ *
+ * This function computes `(this / total) * 100`. It handles the case where the total is zero
+ * by returning `0f` to prevent division-by-zero errors. The result is returned as a `Float`
+ * to preserve decimal precision.
+ *
+ * Example:
+ * ```
+ * val score = 40
+ * val totalPossible = 50
+ * val percentage = score.toPercentage(totalPossible) // Result: 80.0f
+ *
+ * val items = 0
+ * val totalItems = 0
+ * val zeroPercentage = items.toPercentage(totalItems) // Result: 0.0f
+ * ```
+ *
+ * @param total The total value to calculate the percentage against. This is the denominator.
+ * @return The calculated percentage as a `Float`. Returns `0f` if `total` is `0`.
+ */
 fun Int.toPercentage(total: Int): Float {
     return if (total == 0) 0f else (this.toFloat() / total) * 100
 }
