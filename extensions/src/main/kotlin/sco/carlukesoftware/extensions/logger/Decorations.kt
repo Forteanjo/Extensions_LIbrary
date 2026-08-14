@@ -32,7 +32,7 @@ fun Logger.withThreadName() = Logger { message ->
 }
 
 @OptIn(ExperimentalTime::class)
-fun Logger.withDateTime(clock: kotlin.time.Clock = Clock.System) = Logger { message ->
+fun Logger.withDateTime(clock: Clock = Clock.System) = Logger { message ->
     // Get the current moment in time
     val currentMoment: Instant = Clock.System.now()
 

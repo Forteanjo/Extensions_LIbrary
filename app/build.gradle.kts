@@ -66,7 +66,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.kotlinx.datetime)
     implementation(libs.androidx.annotation)
 
     implementation(libs.kotlin.extensions.library)

@@ -85,6 +85,28 @@ fun Long.toNumInUnits(): String {
 
 fun Number.formatDecimal(digits: Int = 2): String = "%.${digits}f".format(toDouble())
 
+/**
+ * Checks whether a given number is a prime number.
+ *
+ * A prime number is a natural number greater than 1 that has no positive divisors
+ * other than 1 and itself.
+ *
+ * @return `true` if the number is prime, `false` otherwise.
+ */
+fun Long.isPrime(): Boolean {
+    if (this <= 1L) return false
+    if (this <= 3L) return true
+    if (this % 2L == 0L || this % 3L == 0L) return false
+
+    var divisor = 5L
+    while (divisor * divisor <= this) {
+        if (this % divisor == 0L || this % (divisor + 2L) == 0L) return false
+        divisor += 6L
+    }
+
+    return true
+}
+
 
 /**
  * Retrieves the digit at a specific position (from right to left, 0-indexed) in an integer.

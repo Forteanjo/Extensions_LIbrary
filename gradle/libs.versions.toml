@@ -1,13 +1,13 @@
 [versions]
-agp = "9.0.0"
-kotlin = "2.3.0"
+agp = "9.3.1"
+kotlin = "2.4.0"
 
 # Dokka for documentation
-dokka = "2.2.0-Beta"
+dokka = "2.2.0"
 
 # Kotlin extensions
 
-annotationJvm = "1.9.1"
+annotationJvm = "1.10.0"
 
 #kotlinx-datetime
 kotlinx-datetime = "0.7.1"
@@ -16,9 +16,9 @@ kotlinx-datetime = "0.7.1"
 extensions_library = "1.0.2"
 
 # Android SDK settings
-android-compileSdk = "36"
+android-compileSdk = "37"
 android-minSdk = "27"
-android-targetSdk = "36"
+android-targetSdk = "37"
 android-buildtools = "36.0.0"
 
 app-versionCode = "1"
@@ -32,6 +32,7 @@ androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jv
 
 #kotlinx-datetime
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
+
 kotlin-extensions_library = { module = "com.github.Forteanjo:Extensions_Library", version.ref = "extensions_library" }
 
 [plugins]
