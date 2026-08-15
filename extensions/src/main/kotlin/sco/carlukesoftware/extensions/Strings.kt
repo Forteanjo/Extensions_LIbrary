@@ -5,6 +5,15 @@ import java.util.regex.Pattern
 
 fun String?.orEquals(value: String) = this ?: value
 
+/**
+ * Validates if the string is a properly formatted email address.
+ *
+ * This function uses a regular expression to check for a standard email format,
+ * ensuring it contains a local part, an '@' symbol, a domain name, and a TLD
+ * between 2 and 8 characters long. The check is case-insensitive.
+ *
+ * @return `true` if the string matches the email pattern, `false` otherwise.
+ */
 fun String.isEmailValid(): Boolean {
     val expression = "^[\\w.-]+@([\\w\\-]+\\.)+[A-Z]{2,8}$"
     val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
@@ -27,7 +36,7 @@ fun String.containsAnySymbol(symbols: List<String>): Boolean {
 /**
  * Converts the string to title case.
  *
- * This function capitalizes the first letter of the string and the first letter of every word
+ * This function capitalises the first letter of the string and the first letter of every word
  * after a space. It first trims any leading or trailing whitespace and converts the entire
  * string to lowercase before applying the title case logic.
  *
