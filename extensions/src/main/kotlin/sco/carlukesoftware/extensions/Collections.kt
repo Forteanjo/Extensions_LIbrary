@@ -13,7 +13,7 @@ fun <T> Collection<T>.takePercentage(percentage: Double): List<T> {
 
 /**
  * Merges the given [Collection] of type-equivalent [Maps] together, while grouping the
- * values of each key together and finally applying the given [lambds] to each value
+ * values of each key together and finally applying the given [lambda] to each value
  * to merge the list of values of each key into a single value such that the returned map
  * has the same type-signature again.
  */
