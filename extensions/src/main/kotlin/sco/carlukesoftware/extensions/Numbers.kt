@@ -142,7 +142,7 @@ fun Int.lastDigit(): Int =
 //        .toInt()
 
 
-fun Int.toWords(language: String = "en", country: String = "US"): String {
+fun Int.toWords(language: String = "en", country: String = "UK"): String {
     val formatter = MessageFormat(
         "{0,spellout,currency}",
         Locale(language, country)
