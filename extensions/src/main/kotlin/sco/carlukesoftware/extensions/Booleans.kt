@@ -80,10 +80,29 @@ fun Boolean?.isFalse(): Boolean {
     return this == false
 }
 
+/**
+ * Returns the value of this [Boolean] if it is not null, otherwise returns `true`.
+ *
+ * This is a convenience property for `this ?: true`.
+ *
+ * @return The Boolean value, or `true` if `null`.
+ */
 val Boolean?.orTrue: Boolean
     get() = this ?: true
 
+/**
+ * Returns the value of this Boolean if it is not null, otherwise returns `false`.
+ *
+ * This is a convenience property for `this ?: false`.
+ *
+ * @return The Boolean value or `false` if null.
+ */
 val Boolean?.orFalse: Boolean
     get() = this ?: false
 
+/**
+ * Converts this [Boolean] to its integer representation.
+ *
+ * @return `1` if this is `true`, or `0` if this is `false`.
+ */
 fun Boolean.toInt(): Int = if (this) 1 else 0
