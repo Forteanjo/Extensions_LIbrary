@@ -21,6 +21,9 @@ android-minSdk = "27"
 android-targetSdk = "37"
 android-buildtools = "36.0.0"
 
+androidx-test-ext-junit = "1.2.1"
+androidx-test-runner = "1.6.1"
+
 app-versionCode = "1"
 app-versionName = "1.0"
 
@@ -36,6 +39,8 @@ kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime",
 
 kotlin-extensions_library = { module = "com.github.Forteanjo:Extensions_Library", version.ref = "extensions_library" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-test-runner" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

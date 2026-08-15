@@ -70,4 +70,6 @@ dependencies {
     implementation(libs.kotlin.extensions.library)
 
     testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.runner)
 }
