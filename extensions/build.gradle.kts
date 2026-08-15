@@ -29,7 +29,7 @@ android {
         singleVariant("release") {
             withSourcesJar()
             // Do not use withJavadocJar(), it's for the standard Javadoc task.
-            // We'll create our own javadoc JAR from Dokka's output.
+            // We'll create our own Javadoc JAR from Dokka's output.
         }
     }
 }

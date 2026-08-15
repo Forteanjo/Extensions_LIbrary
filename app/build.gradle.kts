@@ -20,6 +20,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -53,7 +54,7 @@ android {
     }
 
     // Add Kotlin source directories to AndroidSourceSet.kotlin
-    android.sourceSets.named("main") {
+    sourceSets.named("main") {
         kotlin.directories += listOf(
             "src/main/kotlin",
             "src/common/kotlin",
@@ -67,7 +68,8 @@ android {
 
 dependencies {
     implementation(libs.androidx.annotation)
-    implementation(libs.kotlin.extensions.library)
+    //implementation(libs.kotlin.extensions.library)
+    implementation(project(":extensions"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

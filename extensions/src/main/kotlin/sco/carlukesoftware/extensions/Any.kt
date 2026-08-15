@@ -77,7 +77,7 @@ inline fun Any?.onIsNull(block: () -> Unit) = if (this == null) { block() } else
  *
  * @return The string representation of the object, or "null" if the object is `null`.
  */
-inline fun Any?.toString(): String = this?.toString() ?: "null"
+fun Any?.toString(): String = this?.toString() ?: "null"
 
 /**
  * A convenient extension property to check if a nullable object is `null`.
