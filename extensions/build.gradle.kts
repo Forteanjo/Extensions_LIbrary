@@ -15,11 +15,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(libs.versions.jvmTarget.get())
-        targetCompatibility = JavaVersion.toVersion(libs.versions.jvmTarget.get())
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     kotlin {
+        jvmToolchain(21)
         compilerOptions {
             freeCompilerArgs.add("-Xcontext-sensitive-resolution")
         }
@@ -52,7 +53,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.github.forteanjo"
             artifactId = "extensions"
-            version = "1.0.5"
+            version = "1.0.6"
 
             afterEvaluate {
                 from(components["release"])
