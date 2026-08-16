@@ -24,5 +24,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Extensions Library"
-include(":app")
+if (System.getenv("JITPACK") != "true") {
+    include(":app")
+}
 include(":extensions")

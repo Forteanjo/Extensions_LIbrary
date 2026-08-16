@@ -21,7 +21,7 @@ android {
 
     kotlin {
         compilerOptions {
-            freeCompilerArgs.addAll("-Xcontext-sensitive-resolution")
+            freeCompilerArgs.add("-Xcontext-sensitive-resolution")
         }
     }
 
@@ -52,7 +52,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.github.forteanjo"
             artifactId = "extensions"
-            version = "1.0.4"
+            version = "1.0.5"
 
             afterEvaluate {
                 from(components["release"])
@@ -64,7 +64,7 @@ publishing {
             pom {
                 name.set(project.name)
                 description.set("Useful Kotlin extensions for Android development.")
-                url.set("https://github.com/forteanjo/ExtensionsLibrary")
+                url.set("https://github.com/forteanjo/Extensions_Library")
 
                 licenses {
                     license {
@@ -82,9 +82,9 @@ publishing {
                 }
 
                 scm {
-                    connection.set("scm:git:git://github.com/forteanjo/ExtensionsLibrary.git")
-                    developerConnection.set("scm:git:ssh://github.com/forteanjo/ExtensionsLibrary.git")
-                    url.set("https://github.com/forteanjo/ExtensionsLibrary/tree/main")
+                    connection.set("scm:git:git://github.com/forteanjo/Extensions_Library.git")
+                    developerConnection.set("scm:git:ssh://github.com/forteanjo/Extensions_Library.git")
+                    url.set("https://github.com/forteanjo/Extensions_Library/tree/main")
                 }
             }
         }
