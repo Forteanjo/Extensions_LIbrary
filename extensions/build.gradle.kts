@@ -52,7 +52,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.github.forteanjo"
             artifactId = "extensions"
-            version = "1.0.3"
+            version = "1.0.4"
 
             afterEvaluate {
                 from(components["release"])
