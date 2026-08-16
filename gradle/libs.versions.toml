@@ -37,7 +37,8 @@ androidx-annotation-jvm = { group = "androidx.annotation", name = "annotation-jv
 #kotlinx-datetime
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
 
-kotlin-extensions_library = { module = "com.github.Forteanjo:Extensions_Library", version.ref = "extensions_library" }
+#kotlin-extensions_library = { module = "com.github.Forteanjo:Extensions_Library", version.ref = "extensions_library" }
+
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-test-runner" }
