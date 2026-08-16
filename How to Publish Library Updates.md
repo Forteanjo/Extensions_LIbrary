@@ -2,7 +2,7 @@
 
 JitPack builds your library directly from your GitHub repository, so publishing is mostly about preparing your Gradle setup and creating a GitHub release.
 
-## Step 1 - Push your library to GitHu
+## Step 1 - Push your library to GitHub
 
 JitPack only works with Git repositories hosted on GitHub. 
 
