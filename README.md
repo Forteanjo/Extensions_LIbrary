@@ -1,7 +1,7 @@
 # Kotlin Extensions
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.3.0-blue.svg)](https://kotlinlang.org/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.4.0-blue.svg)](https://kotlinlang.org/)
 [![API](https://img.shields.io/badge/API-27%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=26)
 
 [![Build Status](https://github.com/forteanjo/Extensions_Library/actions/workflows/android.yml/badge.svg)](https://github.com/forteanjo/Extensions_Library/actions/workflows/android.yml)
@@ -44,8 +44,8 @@ Dokka HTML Documentation:
 ## Acknowledgements
 
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Licence
+This project is licensed under the MIT Licence - see the [LICENCE](LICENSE) file for details.
 
 ## Contact
 Donald McCaskey - [forteanjo@sky.com](mailto:forteanjo@sky.com)
